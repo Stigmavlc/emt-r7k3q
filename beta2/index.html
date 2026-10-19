@@ -76,11 +76,12 @@ input:focus{border-color:var(--ink);background:#fff}
 .go{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;font:700 19px Barlow;color:#fff;background:#1A73E8;border-radius:12px;padding:13px;text-decoration:none}
 .go:active{opacity:.75}
 .go svg{width:24px;height:24px;flex:none}
+#hint{position:fixed;left:0;right:0;z-index:39;max-width:560px;margin:0 auto;background:#fff;color:#0E0E0E;font:600 14px Barlow,sans-serif;text-align:center;padding:9px 12px;border-radius:0 0 10px 10px;box-shadow:0 8px 18px -8px rgba(0,0,0,.45);border-bottom:3px solid #1A73E8;display:none}#hint.on{display:block}
 .tip{font-size:13px;color:var(--mut);text-align:center;margin:8px 4px 0}
 .beta{position:absolute;top:calc(env(safe-area-inset-top) + 4px);right:8px;font:700 11px Barlow;background:#FFB000;color:#000;border-radius:4px;padding:2px 6px}
 .sign.fix{position:fixed;top:0;left:0;right:0;z-index:40;border-radius:0 0 10px 10px;padding-top:calc(env(safe-area-inset-top) + 10px);max-width:560px;margin:0 auto;box-shadow:inset 0 0 0 3px #2a2a2a,0 8px 20px -8px rgba(0,0,0,.6)}
 </style></head><body>
-<header class="top"><span class="beta">BETA 2</span><div id="sph"></div><div class="sign"><div class="n" id="sn">EMT</div><div class="d"><span id="sd">Puntos de relevo</span></div></div>
+<header class="top"><span class="beta">BETA 2</span><div id="sph"></div><div id="hint">👆 Toca una parada para abrir “Cómo llegar en Google Maps”</div><div class="sign"><div class="n" id="sn">EMT</div><div class="d"><span id="sd">Puntos de relevo</span></div></div>
 <p class="lead">Escribe la línea, el número o el nombre de la parada y te sale la zona y lo que se cobra.</p></header>
 <main class="wrap">
 <div class="form"><div class="row">
@@ -125,5 +126,5 @@ document.addEventListener('click',e=>{const it=e.target.closest('.it[data-k]');i
 if(!e.target.closest('.fld'))Object.values(SB).forEach(b=>$(b).classList.remove('on'))});
 ['l','p','n'].forEach(id=>{$(id).addEventListener('input',()=>{go();sug(id)});$(id).addEventListener('focus',()=>{$(id).closest('.form').scrollIntoView({block:'start'});sug(id)})});go();
 $('bus').addEventListener('click',()=>{Object.values(SB).forEach(b=>{$(b).classList.remove('on');$(b).style.display='none'});document.activeElement&&document.activeElement.blur();go();$('res').scrollIntoView({behavior:'smooth',block:'start'})});['l','p','n'].forEach(id=>{$(id).addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('bus').click()}});$(id).addEventListener('input',()=>{$(SB[id]).style.display=''})});$('clr').addEventListener('click',()=>{SEL=null;['l','p','n'].forEach(i=>$(i).value='');Object.values(SB).forEach(b=>$(b).classList.remove('on'));document.activeElement&&document.activeElement.blur();go();window.scrollTo({top:0,behavior:'smooth'})});
-</script><script>(function(){const g=document.querySelector('.sign'),h=document.getElementById('sph');let on=false;function f(){const t=(on?h:g).getBoundingClientRect().top;const want=t<0;if(want!==on){on=want;if(on){h.style.height=g.offsetHeight+'px'}else{h.style.height='0'}g.classList.toggle('fix',on)}}addEventListener('scroll',f,{passive:true});addEventListener('resize',f);f()})();</script>
+</script><script>(function(){const g=document.querySelector('.sign'),h=document.getElementById('sph');let on=false;function f(){const t=(on?h:g).getBoundingClientRect().top;const want=t<0;if(want!==on){on=want;if(on){h.style.height=g.offsetHeight+'px'}else{h.style.height='0'}g.classList.toggle('fix',on)}const k=document.getElementById('hint');k.style.top=g.offsetHeight+'px';k.classList.toggle('on',on&&!!document.querySelector('.tip'))}new MutationObserver(f).observe(document.getElementById('res'),{childList:true});addEventListener('scroll',f,{passive:true});addEventListener('resize',f);f()})();</script>
 </body></html>
