@@ -1,0 +1,133 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#C8102E"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Relevos"><title>BETA Relevos EMT beta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--red:#C8102E;--ink:#17201E;--mut:#5E6967;--paper:#EEF1F0;--card:#fff;--rule:#D5DBD9;
+--A:#1E8449;--B:#1F5FAE;--C:#D99A00;--D:#6A3D9A}
+*{box-sizing:border-box;margin:0}
+body{font-family:Barlow,system-ui,sans-serif;background:var(--paper);color:var(--ink);font-size:17px;line-height:1.4;-webkit-font-smoothing:antialiased}
+.top{background:var(--red);color:#fff;padding:calc(env(safe-area-inset-top) + 18px) 18px 22px;position:relative;overflow:hidden}
+.sign{background:#0E0E0E;border-radius:6px;padding:10px 14px;display:flex;align-items:center;gap:12px;box-shadow:inset 0 0 0 3px #2a2a2a;max-width:560px;margin:0 auto}
+.sign .n{font:800 34px/1 "Barlow Condensed";color:#FFB000;min-width:52px;text-align:center;border-right:2px solid #333;padding-right:12px}
+.sign .d{font:700 26px/1.05 "Barlow Condensed";color:#FFB000;letter-spacing:.02em;white-space:nowrap;overflow:hidden;
+background-image:radial-gradient(circle,transparent 55%,#0E0E0E 56%);background-size:3px 3px;-webkit-background-clip:text}
+.sign .d span{display:inline-block;animation:roll 1.1s cubic-bezier(.2,.8,.2,1) both}
+@keyframes roll{from{transform:translateY(110%)}}
+.lead{max-width:560px;margin:14px auto 0;font-size:15px;opacity:.92}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px 40px}
+.form{background:var(--card);border-radius:14px;margin-top:-10px;position:relative;z-index:5;padding:14px;
+box-shadow:0 1px 0 var(--rule),0 10px 30px -18px rgba(23,32,30,.5)}
+.row{display:grid;grid-template-columns:96px 1fr;gap:10px}
+label{display:block;font:600 14px Barlow;color:var(--mut);margin:0 0 5px 2px}
+input{width:100%;font:600 20px Barlow;color:var(--ink);background:var(--paper);border:2px solid transparent;border-radius:10px;padding:11px 12px;outline:none}
+select{width:100%;font:600 20px Barlow;color:var(--ink);background:var(--paper);border:2px solid transparent;border-radius:10px;padding:11px 12px;outline:none;-webkit-appearance:none;appearance:none;background-image:linear-gradient(45deg,transparent 50%,#17201E 50%),linear-gradient(135deg,#17201E 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+input::placeholder{color:#9AA4A2;font-weight:500}
+input:focus{border-color:var(--ink);background:#fff}
+.full{margin-top:10px}
+.meta{display:flex;justify-content:space-between;align-items:baseline;margin:20px 4px 8px;font-size:15px;color:var(--mut)}
+.meta b{color:var(--ink)}
+.list{background:var(--card);border-radius:14px;overflow:hidden}
+.it{display:grid;grid-template-columns:54px 1fr auto;gap:14px;align-items:center;padding:14px;border-top:1px solid var(--rule)}
+.it:first-child{border-top:0}
+.z{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font:800 30px/1 "Barlow Condensed";color:#fff;background:var(--c)}
+.nm{font:700 21px/1.1 "Barlow Condensed";letter-spacing:.005em}
+.dt{font-size:15px;color:var(--mut);margin-top:3px}
+.ln{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}
+.ln i{font:700 14px/1 "Barlow Condensed";font-style:normal;background:var(--red);color:#fff;border-radius:4px;padding:4px 6px}
+.ln i.x{background:var(--paper);color:var(--mut);font-family:Barlow;font-weight:500}
+.eur{text-align:right}
+.eur strong{font:800 28px/1 "Barlow Condensed";display:block}
+.eur small{font-size:13px;color:var(--mut)}
+.empty{padding:34px 18px;text-align:center;color:var(--mut)}
+.tab{margin-top:22px;background:var(--card);border-radius:14px;padding:14px}
+.tab h2{font:700 20px "Barlow Condensed";margin-bottom:10px}
+.tab div{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.tab p{border-top:4px solid var(--c);padding-top:6px;font-size:14px;color:var(--mut)}
+.tab p b{display:block;font:800 22px/1.1 "Barlow Condensed";color:var(--ink)}
+.foot{font-size:13px;color:var(--mut);margin:18px 4px 0;line-height:1.5}
+@media (prefers-reduced-motion:reduce){.sign .d span{animation:none}}
+.fld{position:relative}
+.sug{display:none;margin-top:6px;background:#fff;border:2px solid var(--ink);border-radius:10px;max-height:46vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.sug.on{display:none!important}
+.bus{width:100%;margin-top:10px;font:800 20px Barlow;color:#fff;background:#1E9E4A;border:0;border-radius:10px;padding:13px;cursor:pointer}.bus:active{background:#167A39}.clr{width:100%;margin-top:10px;font:700 18px Barlow;color:#fff;background:var(--ink);border:0;border-radius:10px;padding:11px;cursor:pointer}
+.clr:active{opacity:.7}
+.sg{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;padding:10px 12px;border-top:1px solid var(--rule);cursor:pointer}
+.sg:first-child{border-top:0}.sg:active{background:var(--paper)}
+.sg .zz{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font:800 19px/1 "Barlow Condensed";color:#fff;background:var(--c)}
+.sg .t{font:700 17px/1.15 "Barlow Condensed"}.sg .s{font-size:13px;color:var(--mut)}
+.sg .e{font:800 18px "Barlow Condensed"}
+.sg.none{display:block;color:var(--mut);cursor:default;font-size:15px}
+.row .fld .sug{position:absolute;z-index:30;box-shadow:0 12px 30px -10px rgba(0,0,0,.4);left:0;width:calc(100vw - 56px);max-width:504px}
+.row .fld:last-child .sug{left:auto;right:0}
+.it{cursor:pointer;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,opacity .25s;position:relative;background:var(--card)}
+.list.has .it:not(.sel){opacity:.45}
+.it.sel{transform:scale(1.03);z-index:2;border-radius:14px;box-shadow:0 14px 34px -10px rgba(0,0,0,.45);border-top-color:transparent;margin:6px 0;padding:18px 16px;outline:3px solid var(--c)}
+.it.sel .z{width:66px;height:66px;font-size:38px}
+.it.sel .nm{font-size:26px}
+.it.sel .eur strong{font-size:34px}
+.list.has{overflow:visible}
+.mx{display:none;grid-column:1/-1;border-top:1px dashed var(--rule);padding-top:12px;margin-top:2px}
+.it.sel .mx{display:block}
+.mx .ad{font-size:16px;color:var(--ink);margin-bottom:10px}
+.mx .ad small{display:block;color:var(--mut);font-size:13px}
+.go{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;font:700 19px Barlow;color:#fff;background:#1A73E8;border-radius:12px;padding:13px;text-decoration:none}
+.go:active{opacity:.75}
+.go svg{width:24px;height:24px;flex:none}
+#hint{position:fixed;left:0;right:0;z-index:39;max-width:560px;margin:0 auto;background:#fff;color:#0E0E0E;font:600 14px Barlow,sans-serif;text-align:center;padding:9px 12px;border-radius:0 0 10px 10px;box-shadow:0 8px 18px -8px rgba(0,0,0,.45);border-bottom:3px solid #1A73E8;display:none}#hint.on{display:flex;align-items:center;justify-content:center;gap:10px}#hint .hh{font-size:44px;line-height:1}#hint .ht{font:700 18px/1.25 Barlow,sans-serif;text-align:left}
+.tip{font-size:13px;color:var(--mut);text-align:center;margin:8px 4px 0}
+.beta{position:absolute;top:calc(env(safe-area-inset-top) + 4px);right:8px;font:700 11px Barlow;background:#FFB000;color:#000;border-radius:4px;padding:2px 6px}
+.sign.fix{position:fixed;top:0;left:0;right:0;z-index:40;border-radius:0 0 10px 10px;padding-top:calc(env(safe-area-inset-top) + 10px);max-width:560px;margin:0 auto;box-shadow:inset 0 0 0 3px #2a2a2a,0 8px 20px -8px rgba(0,0,0,.6)}
+</style></head><body>
+<header class="top"><div id="sph"></div><div id="hint"><span class="hh">👇</span><span class="ht">Toca una parada para abrir:<br>“Cómo llegar con Google Maps”</span></div><div class="sign"><div class="n" id="sn">EMT</div><div class="d"><span id="sd">Puntos de relevo</span></div></div>
+<p class="lead">Escribe la línea, el número o el nombre de la parada y te sale la zona y lo que se cobra.</p></header>
+<main class="wrap">
+<div class="form"><div class="row">
+<div class="fld"><label for="l">Línea</label><input id="l" inputmode="numeric" placeholder="10" autocomplete="off"><div class="sug" id="sl"></div></div>
+<div class="fld"><label for="p">Número de parada</label><input id="p" inputmode="numeric" placeholder="2277" autocomplete="off"><div class="sug" id="sp"></div></div></div>
+<div class="full fld"><label for="n">Nombre de la parada</label><input id="n" placeholder="xativa, blasco ibañez…" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><div class="sug" id="sn2"></div></div><div class="full"><label for="c">Selecciona la cochera</label><select id="c"><option value="">Todas las cocheras</option><option value="San Isidre">Cochera de San Isidro</option><option value="Deposit Nord">Cochera de Norte</option></select></div><button type="button" class="bus" id="bus">🔍 Buscar</button><button type="button" class="clr" id="clr">Borrar todo</button></div>
+<div class="meta"><span id="cnt"></span><span id="yr"></span></div>
+<div class="list" id="res"></div>
+<section class="tab"><h2 id="th"></h2><div id="leg"></div></section>
+<p class="foot">Zona A hasta 20 minutos, B hasta 30, C hasta 40 y D más de 40. Importes por día según la tabla salarial de 2026 del convenio (BOP Valencia nº 196, 13-10-2026): A 1,02 · B 1,52 · C 2,03 · D 3,05. Desde 2027 se ponen las cifras base del artículo 38.j hasta que salga la tabla actualizada.</p>
+</main><script>
+const D=[["31", 113, "Blasco Ibáñez - Ramon Llull", 28, "B", "Deposit Nord"], ["31", 116, "Blasco Ibáñez - Doctor Manuel Candela", 28, "B", "Deposit Nord"], ["12", 177, "Emili Baró - Metro Benimaclet", 31, "C", "Deposit Nord"], ["90 (C3)", 229, "Cardenal Benlloch (imparell) - Port", "?", "C", "Deposit Nord"], ["89 (C3)", 231, "Eduard Boscà - Balears", "?", "C", "Deposit Nord"], ["28", 331, "Burjassot - Centre Cultural Bombas Gens", 48, "D", "Deposit Nord"], ["6, 16, 26, 94", 341, "Pont de Fusta", 34, "C", "Deposit Nord"], ["95", 342, "Guadalaviar - Sagunt", 34, "C", "Deposit Nord"], ["6, 16, 26, 94", 352, "Guadalaviar - Pont dels Serrans", 34, "C", "Deposit Nord"], ["28", 354, "Pare Ferrís - Joaquim Ballester", 48, "D", "Deposit Nord"], ["62", 371, "Pius XII (parell) - Centre Comercial", 21, "B", "San Isidre"], ["62", 409, "Pius XII (imparell) - Centre Comercial", 21, "B", "San Isidre"], ["67", 427, "Pérez Galdós - Olimpia Arozena Torres", 21, "B", "San Isidre"], ["72, 73", 545, "Arquitecte Segura de Lago - Professor Àngel Lacalle", 11, "A", "San Isidre"], ["27", 577, "Sant Vicent Màrtir (parell) - Creu Coberta", 25, "B", "San Isidre"], ["27", 592, "San Vicent Màrtir (imparell) - Creu Coberta", 25, "B", "San Isidre"], ["92", 693, "Ferran el Catòlic (parell) - Àngel Guimerà", 18, "A", "San Isidre"], ["92", 702, "Ferran el Catòlic (imparell) - Àngel Guimerà", 18, "A", "San Isidre"], ["64", 705, "Ramón y Cajal (imparell) - Jesús", 24, "B", "San Isidre"], ["67", 746, "Àngel Guimerà - Bon Ordre", 21, "B", "San Isidre"], ["11, 71", 814, "Jesús - Pare Jofré", 34, "C", "Deposit Nord"], ["11, 71", 814, "Jesús - Pare Jofré", 24, "B", "San Isidre"], ["7", 830, "Russafa - Ciril Amorós", 26, "B", "San Isidre"], ["93", 1055, "Aragó - Ernest Ferrer", 32, "C", "Deposit Nord"], ["79 C2", 1057, "Estadi de Mestalla (front)", 28, "B", "Deposit Nord"], ["93", 1083, "Aragó - Amadeu de Savoia", 32, "C", "Deposit Nord"], ["40", 1110, "Doctor Manuel Candela (parell) - Port", 27, "B", "Deposit Nord"], ["40", 1119, "Doctor Manuel Candela (imparell) - Port", 27, "B", "Deposit Nord"], ["39(99)", 1175, "Tres Creus - Segona República Espanyola", 12, "A", "San Isidre"], ["81", 1210, "Blasco Ibáñez - Serradora", 13, "A", "Deposit Nord"], ["12", 1231, "Dolores Marqués - Metro Benimaclet", 31, "C", "Deposit Nord"], ["67, 89 (C3)", 1254, "Cid - Aiora", 21, "B", "San Isidre"], ["32", 1384, "Serradora - Poliesportiu", 11, "A", "Deposit Nord"], ["32", 1386, "Centre de Salut Serreria", 15, "A", "Deposit Nord"], ["60, 70", 1520, "Sant Agustí", 38, "C", "Deposit Nord"], ["60, 70", 1520, "Sant Agustí", 24, "B", "San Isidre"], ["19", 1592, "Joan Verdeguer - Isaac Peral", 19, "A", "Deposit Nord"], ["4, 30, 92", 1593, "Eivissa  - Professor Vicente Llorens", 19, "A", "Deposit Nord"], ["4, 30", 1622, "Port - Eivissa", 19, "A", "Deposit Nord"], ["19, 39(99)", 1630, "Menorca - Eivissa", 19, "A", "Deposit Nord"], ["92", 1631, "Port - Illes Canàries", 19, "A", "Deposit Nord"], ["90 (C3)", 1692, "Pérez Galdós - Heroi Romeu", 21, "B", "San Isidre"], ["18 (solo verano), 38(98)", 1898, "Tarongers (parell) - Metro Beteró", 11, "A", "Deposit Nord"], ["38(98)", 1918, "Tarongers (imparell) - Metro Beteró", 11, "A", "Deposit Nord"], ["9, 59 (9S)", 1929, "Gaspar Aguilar (parell) - Doctor Tomás Sala", 23, "B", "San Isidre"], ["9, 59 (9S)", 1930, "Gaspar Aguilar (imparell) - Doctor Tomás Sala", 23, "B", "San Isidre"], ["No sale en la tabla de 2026", 1936, "Sant Isidre", 15, "A", "San Isidre"], ["18", 1949, "Universitats - Facultat de Magisteri", 16, "A", "Deposit Nord"], ["35", 1954, "Pintor Maella - Luis Bolinches Compañ", 25, "B", "Deposit Nord"], ["35", 1955, "Pintor Maella - Menorca", 25, "B", "Deposit Nord"], ["64, 93", 1968, "Plaça d'Espanya (parell) - Ramón y Cajal", 18, "A", "San Isidre"], ["23, 24, 25, 95", 2042, "Ciutat de la Justícia", 34, "C", "Deposit Nord"], ["23, 24, 25, 95", 2042, "Ciutat de la Justícia", 42, "D", "San Isidre"], ["23, 24, 25, 95", 2053, "Museu de les Ciències", 34, "C", "Deposit Nord"], ["23, 24, 25, 95", 2053, "Museu de les Ciències", 42, "D", "San Isidre"], ["39(99)", 2060, "Eivissa (parell) - Illes Canàries", 19, "A", "Deposit Nord"], ["38(98)", 2070, "Ciutat Administrativa 9 d'Octubre - Cieza", 24, "B", "San Isidre"], ["38(98)", 2071, "Ciutat Administrativa 9 d'Octubre - Lluís Lamarca", 24, "B", "San Isidre"], ["31", 2210, "Sant Vicent Màrtir - Ànimes · ¡¡OJO!! RELEVO EN CALLE SANT VICENT Nº 75", 38, "C", "Deposit Nord"], ["71, 70", 2210, "Sant Vicent Màrtir - Ànimes · ¡¡OJO!! RELEVO EN CALLE SANT VICENT Nº 75", 24, "B", "San Isidre"], ["80 C2", 2213, "Estadi de Mestalla", 28, "B", "Deposit Nord"], ["6, 11", 2219, "Plaça de l'Ajuntament - Barques", 24, "B", "San Isidre"], ["11", 2231, "Alboraia - Centre d'especialitats", 34, "C", "Deposit Nord"], ["11", 2234, "Almassora - Pintor Vilar", 34, "C", "Deposit Nord"], ["11", 2234, "Almassora - Pintor Vilar", 45, "D", "San Isidre"], ["39(99)", 2244, "Tres Creus - Arxiduc Carles", 12, "A", "San Isidre"], ["13", 2250, "Porta de la Mar - Navarro Reverter (parell)", 22, "B", "San Isidre"], ["24, 25", 2253, "Porta de la Mar - General Palanca", 22, "B", "San Isidre"], ["8", 2255, "Porta de la Mar - Glorieta", 22, "B", "San Isidre"], ["5 (C1), 7, 10", 2277, "Xàtiva - Institut Lluís Vives", 24, "B", "San Isidre"], ["14", 2279, "Marqués de Sotelo - Plaça de l'Ajuntament", 21, "B", "San Isidre"], ["7, 11, 73", 2312, "Sant Pau - Estació del Nord", 21, "B", "San Isidre"], ["18", 2320, "Hospital Doctor Peset - Primer de Maig", 23, "B", "San Isidre"], ["63", 2359, "Bailén - Ermita", 24, "B", "San Isidre"], ["93", 2372, "Plaça d'Espanya - Albacete", 18, "A", "San Isidre"], ["6", 2418, "Teatre Principal - Ballesters", 24, "B", "San Isidre"]];
+const PAY={A:[1.02,1.5,2,3],B:[1.52,2.5,3.5,5],C:[2.03,3,5.5,7],D:[3.05,5,7.5,10]},COL={A:'var(--A)',B:'var(--B)',C:'var(--C)',D:'var(--D)'};
+const y=Math.min(Math.max(new Date().getFullYear(),2026),2029),yi=y-2026;
+const eur=v=>v.toLocaleString('es-ES',{minimumFractionDigits:2})+' €';
+const norm=s=>String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
+function lev(a,b){if(Math.abs(a.length-b.length)>2)return 9;const m=[...Array(b.length+1).keys()];for(let i=1;i<=a.length;i++){let p=m[0];m[0]=i;for(let j=1;j<=b.length;j++){const t=m[j];m[j]=Math.min(m[j]+1,m[j-1]+1,p+(a[i-1]!==b[j-1]));p=t}}return m[b.length]}
+function fuzzy(q,t){const w=norm(t).split(' ');return norm(q).split(' ').every(k=>!k||w.some(x=>x.includes(k)||(k.length>3&&lev(k,x.slice(0,k.length+1))<=(k.length>6?2:1))))}
+const lines=s=>(String(s).toUpperCase().match(/(?<![A-Z0-9])[0-9]+[A-Z]?|C[0-9]+/g)||[]).flatMap(t=>/^\d+[A-Z]$/.test(t)?[t,t.replace(/\D/g,'')]:[t]);
+const lineOk=(L,q)=>{q=q.toUpperCase().replace(/\s+/g,'');return !q||lines(L).includes(q)};
+const $=id=>document.getElementById(id),lv=id=>$(id).value.trim();
+$('yr').textContent='Tarifa '+y;$('th').textContent='Lo que se paga en '+y;
+$('leg').innerHTML=Object.keys(PAY).map(z=>`<p style="--c:${COL[z]}"><b>${eur(PAY[z][yi])}</b>Zona ${z}</p>`).join('');
+function sign(n,d){$('sn').textContent=n;const s=$('sd');s.textContent=d;s.style.animation='none';s.offsetWidth;s.style.animation=''}
+let SEL=null;
+function go(){const l=lv('l'),p=lv('p'),n=lv('n'),c=$('c').value;
+const any=!!(l||p||n||c);['res','cnt'].forEach(i=>$(i).style.display=any?'':'none');document.querySelector('.tab').style.display=any?'':'none';if(!any){sign('EMT','Puntos de relevo');return}
+const r=filt();if(r.length===1)SEL=D.indexOf(r[0]);else if(SEL!=null&&!r.includes(D[SEL]))SEL=null;
+$('cnt').innerHTML=`<b>${r.length}</b> de ${D.length} puntos`;
+if(SEL!=null)sign(D[SEL][4],D[SEL][2]);else if(l||p||n||c)sign(l||'EMT',r.length?r.length+' resultados':'Sin resultados');else sign('EMT','Puntos de relevo');
+$('res').classList.toggle('has',r.length>1&&SEL!=null);
+$('res').innerHTML=r.length?r.map(x=>{const [L,P,N,T,Z,C,la,lo,A]=x,i=D.indexOf(x);const ls=/\d/.test(L)?String(L).split(/,\s*/).map(x=>`<a href="https://www.emtvalencia.es/ciudadano/index.php?option=com_alteraciones&task=verparadas&linea=${encodeURIComponent(x.trim().split(' ')[0])}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><i>${x}</i></a>`).join(''):`<i class="x">${L}</i>`;
+const q=la!=null?la+','+lo:encodeURIComponent(N+', Valencia');
+const mx=`<div class="mx"><div class="ad">${A?A+', València':'Sin dirección exacta, se busca por el nombre'}<small>Parada ${P} de la EMT</small></div><a class="go" href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Cómo llegar en Google Maps</a></div>`;
+return `<div class="it${i===SEL?' sel':''}" data-k="${i}" style="--c:${COL[Z]}"><div class="z" style="--c:${COL[Z]}">${Z}</div><div><div class="nm">${N}</div><div class="dt">Parada ${P}, ${T} minutos desde ${C}</div><div class="ln">${ls}</div></div><div class="eur"><strong>${eur(PAY[Z][yi])}</strong><small>al día</small></div>${mx}</div>`}).join('')+(r.length>1&&SEL==null?'<p class="tip">Toca una parada para verla en grande y abrir el mapa</p>':'')
+:'<div class="empty">No hay ningún punto de relevo con eso. Prueba solo con una palabra del nombre o borra la línea.</div>'}
+const SB={l:'sl',p:'sp',n:'sn2'};
+const lmin=L=>{const v=lines(L).map(t=>parseInt(t)).filter(x=>!isNaN(x));return v.length?Math.min(...v):9999};
+function filt(){const l=lv('l'),p=lv('p'),n=lv('n'),c=$('c').value;const r=D.filter(([L,P,N,T,Z,C])=>lineOk(L,l)&&(!p||String(P).startsWith(p.replace(/\D/g,'')))&&(!n||fuzzy(n,N))&&(!c||C===c));if(c||n.includes('*'))r.sort((a,b)=>lmin(a[0])-lmin(b[0])||a[1]-b[1]);return r}
+function sug(id){Object.values(SB).forEach(b=>$(b).classList.remove('on'));const box=$(SB[id]);if(!lv(id)){return}
+const r=filt();box.innerHTML=r.length?r.map((x,i)=>`<div class="sg" data-i="${D.indexOf(x)}"><div class="zz" style="--c:${COL[x[4]]}">${x[4]}</div><div><div class="t">${x[1]} · ${x[2]}</div><div class="s">Líneas ${x[0]} · ${x[3]} min desde ${x[5]}</div></div><div class="e">${eur(PAY[x[4]][yi])}</div></div>`).join(''):'<div class="sg none">Nada con eso</div>';box.classList.add('on')}
+document.addEventListener('click',e=>{const it=e.target.closest('.it[data-k]');if(it&&!e.target.closest('a')){const k=+it.dataset.k;SEL=(SEL===k&&filt().length>1)?null:k;go();const s=document.querySelector('.it.sel');if(s){const f=document.querySelector('.form').getBoundingClientRect().height;window.scrollTo({top:s.getBoundingClientRect().top+scrollY-f-14,behavior:'smooth'})}return}const g=e.target.closest('.sg[data-i]');if(g){const x=D[+g.dataset.i];$('l').value='';$('p').value=String(x[1]);$('n').value='';Object.values(SB).forEach(b=>$(b).classList.remove('on'));document.activeElement.blur();go();$('res').scrollIntoView({behavior:'smooth',block:'start'});return}
+if(!e.target.closest('.fld'))Object.values(SB).forEach(b=>$(b).classList.remove('on'))});
+['l','p','n'].forEach(id=>{$(id).addEventListener('input',()=>{go();sug(id)});$(id).addEventListener('focus',()=>{$(id).closest('.form').scrollIntoView({block:'start'});sug(id)})});go();
+$('c').addEventListener('change',()=>{SEL=null;window.BUSCADO=false;go()});
+$('bus').addEventListener('click',()=>{window.BUSCADO=true;Object.values(SB).forEach(b=>{$(b).classList.remove('on');$(b).style.display='none'});document.activeElement&&document.activeElement.blur();go();$('res').scrollIntoView({behavior:'smooth',block:'start'})});['l','p','n'].forEach(id=>{$(id).addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('bus').click()}});$(id).addEventListener('input',()=>{window.BUSCADO=false;window.HINTF&&HINTF();$(SB[id]).style.display=''})});$('clr').addEventListener('click',()=>{SEL=null;window.BUSCADO=false;['l','p','n','c'].forEach(i=>$(i).value='');Object.values(SB).forEach(b=>$(b).classList.remove('on'));document.activeElement&&document.activeElement.blur();go();window.scrollTo({top:0,behavior:'smooth'})});
+</script><script>(function(){const g=document.querySelector('.sign'),h=document.getElementById('sph');let on=false;function f(){const t=(on?h:g).getBoundingClientRect().top;const want=t<0;if(want!==on){on=want;if(on){h.style.height=g.offsetHeight+'px'}else{h.style.height='0'}g.classList.toggle('fix',on)}const k=document.getElementById('hint');k.style.top=g.offsetHeight+'px';k.classList.toggle('on',on&&!!window.BUSCADO&&!!document.querySelector('.tip'))}window.HINTF=f;{}new MutationObserver(f).observe(document.getElementById('res'),{childList:true});addEventListener('scroll',f,{passive:true});addEventListener('resize',f);f()})();</script>
+</body></html>
